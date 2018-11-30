@@ -1,3 +1,18 @@
+## Special Version for INTEL QUICK SYNC support
+
+This version extends support on Linux based, Intel CPU and QuickSync capable machines new and till now only Windows based, modern BRC methods: 
+* `ICQ` Intelligent Constand Quality
+* `LA_ICQ` Intelligent Constant Quality with Look Ahead
+* `QVBR` Constant Quality with Variable Bitrate algorithm
+
+### Requirements
+
+* Latest libav
+* Latest libav-utils
+* Latest media-driver
+* Latest gmmlib
+* Latest MediaSDK
+
 FFmpeg README
 =============
 
