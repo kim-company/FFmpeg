@@ -8,15 +8,27 @@ This version extends support on Linux based, Intel® CPU and QuickSync capable m
 
 ### Requirements
 
+Base requirements 
+* Intel® QuickSync capable CPU (4th generation, IRIS graphics). See [Supported platforms](https://github.com/intel/media-driver)
+* NO previously installed MediaSDK package from Intel. Fresh OS install recommended if any 2016, 2017 or 2018 package installer did run before.
+* Tests were successful under CentOS 7.4 (1708). No special OS packes required. 
+* Install at least Linux Kernel 4.18.19 (or newer). No special kernel patches required. 
+* Use GCC 6.3 (or newer), CMake 3.12 (or newer)
+
+Software packages
+Run the following command to install required software packages on CentOS 7.4 for compilation: `yum install -y git gcc gcc-c++ openssl-devel elfutils-libelf-devel automake autoconf libtool mesa-libGL-devel libpciaccess-devel bc centos-release-scl devtoolset-6-gcc-c++` and `wget https://cmake.org/files/v3.12/cmake-3.12.0.tar.gz && tar -zxvf cmake-3.12.0.tar.gz && cd cmake-3.12.0 && sudo ./bootstrap --prefix=/usr && sudo make -j$(nproc) && sudo make install` (CMake).
+
+Additional software components
 * Latest master checkout [libva](https://github.com/intel/libva)
 * Latest master checkout [libva-utils](https://github.com/intel/libva-utils)
 * Latest master checkout [media-driver](https://github.com/intel/media-driver)
 * Latest master checkout [gmmlib](https://github.com/intel/gmmlib)
 * Latest master checkout [MediaSDK](https://github.com/Intel-Media-SDK/MediaSDK)
 
+
 ### Examples, How To Use
 
-* **ICQ BRC** encoding: `ffmpeg -hwaccel qsv -init_hw_device qsv=hw -filter_hw_device hw -v verbose -i input.mp4 -c:v h264_qsv -global_quality 30 -look_ahead 0 -y output.mp4` 
+* **ICQ** BRC encoding: `ffmpeg -hwaccel qsv -init_hw_device qsv=hw -filter_hw_device hw -v verbose -i input.mp4 -c:v h264_qsv -global_quality 30 -look_ahead 0 -y output.mp4` 
 * **LA_ICQ** BRC encoding: `ffmpeg -hwaccel qsv -init_hw_device qsv=hw -filter_hw_device hw -v verbose -i input.mp4  -c:v h264_qsv -global_quality 30 -look_ahead 1 -look_ahead_depth 100 -look_ahead_downsampling off -y output.mp4`
 * **QVBR** encoding: `ffmpeg -hwaccel qsv -init_hw_device qsv=hw -filter_hw_device hw -v verbose -i input.mp4 -c:v h264_qsv -global_quality 30 -maxrate 2M -y output.mp4`
 
