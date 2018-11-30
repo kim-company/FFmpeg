@@ -8,11 +8,21 @@ This version extends support on Linux based, Intel® CPU and QuickSync capable m
 
 ### Requirements
 
-* Latest [libva](https://github.com/intel/libva)
-* Latest [libva-utils](https://github.com/intel/libva-utils)
-* Latest [media-driver](https://github.com/intel/media-driver)
-* Latest [gmmlib](https://github.com/intel/gmmlib)
-* Latest [MediaSDK](https://github.com/Intel-Media-SDK/MediaSDK)
+* Latest master checkout [libva](https://github.com/intel/libva)
+* Latest master checkout [libva-utils](https://github.com/intel/libva-utils)
+* Latest master checkout [media-driver](https://github.com/intel/media-driver)
+* Latest master checkout [gmmlib](https://github.com/intel/gmmlib)
+* Latest master checkout [MediaSDK](https://github.com/Intel-Media-SDK/MediaSDK)
+
+### Examples, How To Use
+
+* **ICQ BRC** encoding: `ffmpeg -hwaccel qsv -init_hw_device qsv=hw -filter_hw_device hw -v verbose -i input.mp4 -c:v h264_qsv -global_quality 30 -look_ahead 0 -y output.mp4` 
+* **LA_ICQ** BRC encoding: `ffmpeg -hwaccel qsv -init_hw_device qsv=hw -filter_hw_device hw -v verbose -i input.mp4  -c:v h264_qsv -global_quality 30 -look_ahead 1 -look_ahead_depth 100 -look_ahead_downsampling off -y output.mp4`
+* **QVBR** encoding: `ffmpeg -hwaccel qsv -init_hw_device qsv=hw -filter_hw_device hw -v verbose -i input.mp4 -c:v h264_qsv -global_quality 30 -maxrate 2M -y output.mp4`
+
+### PSNR check of quality
+
+The quality of the results can be checked with the following command `ffmpeg -i check-video.mp4 -i reference-video.mp4 -lavfi  psnr="stats_file=psnr.log" -f null -` and gives PSNR information about video quality. 
 
 FFmpeg README
 =============
