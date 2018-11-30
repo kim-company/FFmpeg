@@ -1,17 +1,18 @@
-## Special Version for INTEL QUICK SYNC support
+Special version for improved Intel® QUICK SYNC support
+=============
 
-This version extends support on Linux based, Intel CPU and QuickSync capable machines new and till now only Windows based, modern BRC methods: 
-* `ICQ` Intelligent Constand Quality
+This version extends support on Linux based, Intel® CPU and QuickSync capable machines. New and modern BRC methods are now supported (till now Windows only). Details about the BRC methods: [Bitrate Control Methods (BRC) in Intel® Media SDK](https://software.intel.com/en-us/articles/common-bitrate-control-methods-in-intel-media-sdk) and [Intel blog, MSS2017-R3](https://software.intel.com/en-us/blogs/2017/07/11/whats-new-in-intel-media-server-studio-2017-r3)
+* `ICQ` Intelligent Constant Quality
 * `LA_ICQ` Intelligent Constant Quality with Look Ahead
 * `QVBR` Constant Quality with Variable Bitrate algorithm
 
 ### Requirements
 
-* Latest libav
-* Latest libav-utils
-* Latest media-driver
-* Latest gmmlib
-* Latest MediaSDK
+* Latest [libva](https://github.com/intel/libva)
+* Latest [libva-utils](https://github.com/intel/libva-utils)
+* Latest [media-driver](https://github.com/intel/media-driver)
+* Latest [gmmlib](https://github.com/intel/gmmlib)
+* Latest [MediaSDK](https://github.com/Intel-Media-SDK/MediaSDK)
 
 FFmpeg README
 =============
